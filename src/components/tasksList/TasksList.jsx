@@ -1,17 +1,14 @@
 import React from "react";
 
+import ListItem from "../listItem/ListItem";
+
 const TasksList = ({ tasks }) => {
   return (
     <div>
       <h3>Tasks List</h3>
       <ul>
         {tasks.map((task) => (
-          <li key={task._id}>
-            <h4>Title: </h4>
-            <p>{task.title}</p>
-            <h4>Description: </h4>
-            <p>{task.description}</p>
-          </li>
+          <ListItem task={task} key={task._id} />
         ))}
       </ul>
     </div>

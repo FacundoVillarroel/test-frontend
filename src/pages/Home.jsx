@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import TasksForm from "../components/TasksForm";
-import TasksList from "../components/TasksList";
+import TasksForm from "../components/tasksForm/TasksForm";
+import TasksList from "../components/tasksList/TasksList";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
