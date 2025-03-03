@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TasksForm from "../components/TasksForm";
+import TasksList from "../components/TasksList";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -17,8 +18,6 @@ const Home = () => {
     }
   };
 
-  console.log(tasks);
-
   useEffect(() => {
     fetchTasks();
   }, []);
@@ -30,6 +29,7 @@ const Home = () => {
   return (
     <div>
       <TasksForm onSubmit={onSubmit} />
+      <TasksList tasks={tasks} />
     </div>
   );
 };
