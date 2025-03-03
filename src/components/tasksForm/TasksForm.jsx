@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const initialState = {
   title: "",
   description: "",
 };
 
-const TasksForm = ({ onSubmit }) => {
+const TasksForm = ({ onSubmit, editTask }) => {
   const [formData, setFormData] = useState(initialState);
+
+  useEffect(() => {
+    if (editTask) {
+      setFormData(editTask);
+    }
+  }, [editTask]);
 
   const onHandleChange = (e) => {
     const { value, name } = e.target;
@@ -37,7 +43,7 @@ const TasksForm = ({ onSubmit }) => {
         name="description"
         required
       />
-      <button type="submit">Save Task</button>
+      <button type="submit">{editTask ? "Update" : "Create"} Task</button>
     </form>
   );
 };
